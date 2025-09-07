@@ -3,9 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
-import '../providers/theme_provider.dart';
 import '../viewmodels/chat_viewmodel.dart';
-import '../services/ai_api_service.dart';
 
 class MainScreen extends StatefulWidget {
   final Widget child;
@@ -24,7 +22,6 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
-    final themeProvider = Provider.of<ThemeProvider>(context);
     return Builder(builder: (context) {
       return Scaffold(
         appBar: AppBar(

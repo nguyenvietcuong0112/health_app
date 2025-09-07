@@ -11,8 +11,7 @@ class ChatBubble extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final isUser = message.sender == MessageSender.user;
-    final alignment = isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start;
-    final color = isUser ? theme.colorScheme.primaryContainer : theme.colorScheme.surfaceVariant;
+    final color = isUser ? theme.colorScheme.primaryContainer : theme.colorScheme.surfaceContainerHighest;
     final textColor = isUser ? theme.colorScheme.onPrimaryContainer : theme.colorScheme.onSurfaceVariant;
     final icon = isUser ? Icons.person_outline : Icons.computer;
 
@@ -43,8 +42,8 @@ class ChatBubble extends StatelessWidget {
             CircleAvatar(
               backgroundColor: theme.colorScheme.primary,
               foregroundColor: theme.colorScheme.onPrimary,
-              child: Icon(icon, size: 20),
               radius: 16,
+              child: Icon(icon, size: 20),
             ),
           Flexible(
             child: Container(
@@ -60,7 +59,7 @@ class ChatBubble extends StatelessWidget {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withAlpha((255 * 0.05).round()),
                     blurRadius: 3,
                     offset: const Offset(0, 1),
                   ),
@@ -73,8 +72,8 @@ class ChatBubble extends StatelessWidget {
             CircleAvatar(
               backgroundColor: theme.colorScheme.secondary,
               foregroundColor: theme.colorScheme.onSecondary,
-              child: Icon(icon, size: 20),
               radius: 16,
+              child: Icon(icon, size: 20),
             ),
           ],
         ],

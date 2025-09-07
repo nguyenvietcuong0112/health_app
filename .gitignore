@@ -15,20 +15,49 @@
 *.iml
 *.ipr
 *.iws
+out/
+gen/
 
-# Visual Studio Code
-.vscode/
-
-# Flutter/Dart
-.dart_tool/
-.packages
+# Flutter
 .flutter-plugins
 .flutter-plugins-dependencies
-build/
+.packages
+.pub-cache/
+.pub/
+/build/
+/ios/Flutter/App.framework
+/ios/Flutter/engine
+/ios/Flutter/flutter_assets
+/ios/Flutter/.symlinks
+/ios/Pods/
+/ios/.bundle
+/ios/DerivedData
+/ios/Runner.xcworkspace
+/ios/Runner.xcodeproj/project.xcworkspace
+/ios/Runner.xcodeproj/xcuserdata
+/ios/Runner/GeneratedPluginRegistrant.*
+**/ios/Pods/*
+**/ios/DerivedData/*
 
-# Generated files
-*.g.dart
-*.freezed.dart
+# Android
+/android/key.properties
+/android/local.properties
+/android/app/src/main/assets/flutter_assets/*
+/android/.gradle
+/android/gradlew
+/android/gradlew.bat
+/android/app/build
+/android/build/
+/android/app/google-services.json
+android/gradle/wrapper/gradle-wrapper.jar
 
-# It is generally recommended to commit the pubspec.lock file.
-# pubspec.lock
+# Web
+/web/flutter.js
+/web/flutter_bootstrap.js
+/web/main.dart.js
+/web/assets/assets/
+/web/assets/fonts/
+/web/assets/packages/
+
+# Firebase
+firebase-debug.log

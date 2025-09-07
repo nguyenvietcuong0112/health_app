@@ -74,19 +74,23 @@ lib/
 - **`google_fonts`:** The `lato` font is used for typography.
 - **Dynamic Theme:** A centralized theme builder creates consistent light and dark themes.
 
-## Current Action Plan: Enhance Chat UI
+## Current Action Plan: Static Analysis Cleanup
 
-**Objective:** Improve the user interface of the chat screen to be more visually appealing and user-friendly.
+**Objective:** Resolve all remaining static analysis warnings and errors from the `flutter analyze` command to improve code quality and maintainability.
 
 **Steps:**
 
-1.  **Style Chat Bubbles:**
-    - [x] Differentiated user and AI messages using distinct colors, alignment, and icons.
-    - [x] Added shadows and rounded corners for a more modern look.
+1.  **Run `build_runner`:**
+    - [x] Executed `dart run build_runner build --delete-conflicting-outputs` to resolve code generation warnings.
 
-2.  **Redesign Message Composer:**
-    - [x] Restyled the text input field and send button for a cleaner and more intuitive design.
+2.  **Fix Deprecation & Lint Warnings:**
+    - [x] **`lib/screens/chat/widgets/chat_bubble.dart`**: Replaced `surfaceVariant` with `surfaceContainerHighest` and fixed other minor lint issues.
+    - [x] **`lib/screens/chat/widgets/message_composer.dart`**: Replaced deprecated `withOpacity` calls with `withAlpha`.
+    - [x] **`lib/widgets/health_card.dart`**: Replaced deprecated `withOpacity` calls.
+    - [x] **`lib/widgets/sleep_chart.dart`**: Replaced deprecated `withOpacity` calls.
+    - [x] **`lib/viewmodels/health_viewmodel.dart`**: Added `const` keyword to improve performance.
+    - [x] **`test/widget_test.dart`**: Removed unused import.
 
-3.  **Finalize and Verify:**
-    - [x] Application rebuilt successfully.
-    - [x] The chat screen now has a more polished and engaging user interface.
+3.  **Final Verification:**
+    - [x] Ran `flutter analyze` again to confirm that all issues have been resolved.
+    - [x] The codebase is now clean of static analysis warnings.

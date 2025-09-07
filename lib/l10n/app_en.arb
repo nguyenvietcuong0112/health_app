@@ -26,5 +26,6 @@
   "clearChat": "Clear Chat History",
   "clearChatTitle": "Clear Entire Conversation?",
   "clearChatContent": "Are you sure you want to delete the entire chat history? This action cannot be undone.",
-  "clear": "Clear"
+  "clear": "Clear",
+  "sync": "Sync"
 }

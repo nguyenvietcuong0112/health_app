@@ -91,4 +91,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get clear => 'Xóa';
+
+  @override
+  String get sync => 'Sync';
 }

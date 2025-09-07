@@ -20,7 +20,7 @@ import 'services/notification_service.dart';
 import 'services/ai_api_service.dart';
 
 // Screens
-import 'screens/dashboard/dashboard_screen.dart';
+import 'screens/dashboard/wellness_dashboard_screen.dart';
 import 'screens/chat/chat_screen.dart';
 import 'screens/main_screen.dart'; // Import the new main screen
 
@@ -58,7 +58,7 @@ final _router = GoRouter(
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => const DashboardScreen(),
+          builder: (context, state) => const WellnessDashboardScreen(),
         ),
         GoRoute(
           path: '/chat',
@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize the GenerativeModel here
     final generativeModel = FirebaseAI.vertexAI(auth: FirebaseAuth.instance)
-        .generativeModel(model: 'gemini-2.5-flash',);
+        .generativeModel(model: 'gemini-2.5-flash');
 
     return MultiProvider(
       providers: [

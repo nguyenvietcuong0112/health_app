@@ -9,7 +9,7 @@ class Message {
   final String text;
   final MessageSender sender;
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   final bool isLoading;
 
   Message({required this.text, required this.sender, this.isLoading = false});

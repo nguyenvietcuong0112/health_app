@@ -33,7 +33,7 @@ class _MessageComposerState extends State<MessageComposer> {
         color: theme.colorScheme.surface,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withAlpha((255 * 0.1).round()),
             blurRadius: 10,
             offset: const Offset(0, -2),
           ),
@@ -46,7 +46,7 @@ class _MessageComposerState extends State<MessageComposer> {
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
-                  color: theme.colorScheme.surfaceVariant,
+                  color: theme.colorScheme.surfaceContainerHighest,
                   borderRadius: BorderRadius.circular(30.0),
                 ),
                 child: Row(
@@ -58,7 +58,7 @@ class _MessageComposerState extends State<MessageComposer> {
                         decoration: InputDecoration(
                           hintText: localizations.chatHint,
                           border: InputBorder.none,
-                          hintStyle: TextStyle(color: theme.colorScheme.onSurfaceVariant.withOpacity(0.6)),
+                          hintStyle: TextStyle(color: theme.colorScheme.onSurfaceVariant.withAlpha((255 * 0.6).round())),
                         ),
                         onSubmitted: widget.isLoading ? null : (_) => _handleSend(),
                         enabled: !widget.isLoading,
