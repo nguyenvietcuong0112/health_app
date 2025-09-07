@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -20,11 +19,28 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
+
   @override
   Widget build(BuildContext context) {
+    final localizations = AppLocalizations.of(context)!;
+
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Builder(builder: (context) {
       return Scaffold(
+        appBar: AppBar(
+          title: Text(localizations.aiAssistant),
+          actions: [
+            Container(
+              child: _selectedIndex == 1
+                  ? FloatingActionButton(
+                      onPressed: () => _showClearChatDialog(context),
+                      tooltip: AppLocalizations.of(context)!.clearChat,
+                      child: const Icon(Icons.delete_sweep_outlined),
+                    )
+                  : null,
+            )
+          ],
+        ),
         body: widget.child,
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
@@ -54,13 +70,13 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ],
         ),
-        floatingActionButton: _selectedIndex == 1
-            ? FloatingActionButton(
-                onPressed: () => _showClearChatDialog(context),
-                tooltip: AppLocalizations.of(context)!.clearChat,
-                child: const Icon(Icons.delete_sweep_outlined),
-              )
-            : null,
+        // floatingActionButton: _selectedIndex == 1
+        //     ? FloatingActionButton(
+        //         onPressed: () => _showClearChatDialog(context),
+        //         tooltip: AppLocalizations.of(context)!.clearChat,
+        //         child: const Icon(Icons.delete_sweep_outlined),
+        //       )
+        //     : null,
       );
     });
   }

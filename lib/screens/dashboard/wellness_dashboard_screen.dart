@@ -2,9 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../l10n/app_localizations.dart';
 import '../../services/ai_api_service.dart';
 import '../../services/notification_service.dart';
 import '../../viewmodels/health_viewmodel.dart';

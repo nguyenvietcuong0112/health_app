@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Initialize the GenerativeModel here
     final generativeModel = FirebaseAI.vertexAI(auth: FirebaseAuth.instance)
-        .generativeModel(model: 'gemini-1.5-flash');
+        .generativeModel(model: 'gemini-2.5-flash',);
 
     return MultiProvider(
       providers: [

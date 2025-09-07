@@ -7,6 +7,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:765200342022:android:36bf38759ffed11aedb787",
+        "android_client_info": {
+          "package_name": "com.ai.healthy.fitness.healthtracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-lEAvdz6VNu026G27gZqri0h273HvgT4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:765200342022:android:5576b015f4808c3dedb787",
         "android_client_info": {
           "package_name": "com.example.myapp"
