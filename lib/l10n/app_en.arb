@@ -16,10 +16,15 @@
   "askAboutHealth": "Ask about health, fitness, nutrition...",
   "aiChat": "AI Chat",
   "drinkWater": "💧 Drink Water",
-  "drinkWaterBody": "Time to hydrate! Grab a glass of water.",
+  "drinkWaterBody": "Time to hydrate! Go grab a glass of water.",
   "moveYourBody": "💪 Move Your Body",
-  "moveYourBodyBody": "A short walk or some stretching can make a difference.",
+  "moveYourBodyBody": "A short walk or a good stretch can make all the difference.",
   "timeForBed": "😴 Time for Bed",
-  "timeForBedBody": "Good night! Aim for 8 hours of sleep.",
-  "sleepChart": "Sleep Chart"
+  "timeForBedBody": "Sweet dreams! Aim for a full 8 hours.",
+  "sleepChart": "Sleep Chart",
+  "chatHint": "Type a message...",
+  "clearChat": "Clear Chat History",
+  "clearChatTitle": "Clear Entire Conversation?",
+  "clearChatContent": "Are you sure you want to delete the entire chat history? This action cannot be undone.",
+  "clear": "Clear"
 }

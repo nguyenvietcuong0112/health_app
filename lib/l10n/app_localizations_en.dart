@@ -57,21 +57,37 @@ class AppLocalizationsEn extends AppLocalizations {
   String get drinkWater => '💧 Drink Water';
 
   @override
-  String get drinkWaterBody => 'Time to hydrate! Grab a glass of water.';
+  String get drinkWaterBody => 'Time to hydrate! Go grab a glass of water.';
 
   @override
   String get moveYourBody => '💪 Move Your Body';
 
   @override
   String get moveYourBodyBody =>
-      'A short walk or some stretching can make a difference.';
+      'A short walk or a good stretch can make all the difference.';
 
   @override
   String get timeForBed => '😴 Time for Bed';
 
   @override
-  String get timeForBedBody => 'Good night! Aim for 8 hours of sleep.';
+  String get timeForBedBody => 'Sweet dreams! Aim for a full 8 hours.';
 
   @override
   String get sleepChart => 'Sleep Chart';
+
+  @override
+  String get chatHint => 'Type a message...';
+
+  @override
+  String get clearChat => 'Clear Chat History';
+
+  @override
+  String get clearChatTitle => 'Clear Entire Conversation?';
+
+  @override
+  String get clearChatContent =>
+      'Are you sure you want to delete the entire chat history? This action cannot be undone.';
+
+  @override
+  String get clear => 'Clear';
 }

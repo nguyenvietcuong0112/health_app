@@ -21,5 +21,10 @@
   "moveYourBodyBody": "Đi bộ một chút hoặc vươn vai có thể tạo ra sự khác biệt.",
   "timeForBed": "😴 Đến giờ đi ngủ",
   "timeForBedBody": "Chúc ngủ ngon! Hãy cố gắng ngủ đủ 8 tiếng nhé.",
-  "sleepChart": "Biểu đồ giấc ngủ"
+  "sleepChart": "Biểu đồ giấc ngủ",
+  "chatHint": "Nhập tin nhắn...",
+  "clearChat": "Xóa lịch sử chat",
+  "clearChatTitle": "Xóa toàn bộ cuộc trò chuyện?",
+  "clearChatContent": "Bạn có chắc chắn muốn xóa toàn bộ lịch sử trò chuyện không? Hành động này sẽ không thể khôi phục.",
+  "clear": "Xóa"
 }

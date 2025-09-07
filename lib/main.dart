@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_ai/firebase_ai.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'firebase_options.dart';
 import 'l10n/app_localizations.dart';
@@ -11,12 +13,16 @@ import 'l10n/app_localizations.dart';
 import 'providers/theme_provider.dart';
 import 'viewmodels/health_viewmodel.dart';
 import 'providers/locale_provider.dart';
+import 'viewmodels/chat_viewmodel.dart';
 
 // Services
 import 'services/notification_service.dart';
+import 'services/ai_api_service.dart';
 
 // Screens
 import 'screens/dashboard/dashboard_screen.dart';
+import 'screens/chat/chat_screen.dart';
+import 'screens/main_screen.dart'; // Import the new main screen
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,38 +32,66 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  // Sign in anonymously
+  await FirebaseAuth.instance.signInAnonymously();
+
   // Initialize Notifications
   final notificationService = NotificationService();
   await notificationService.initialize();
-  
+
   runApp(MyApp(notificationService: notificationService));
 }
 
 // Router configuration
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+final _shellNavigatorKey = GlobalKey<NavigatorState>();
+
 final _router = GoRouter(
+  navigatorKey: _rootNavigatorKey,
+  initialLocation: '/',
   routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const DashboardScreen(),
+    ShellRoute(
+      navigatorKey: _shellNavigatorKey,
+      builder: (context, state, child) {
+        return MainScreen(child: child);
+      },
+      routes: [
+        GoRoute(
+          path: '/',
+          builder: (context, state) => const DashboardScreen(),
+        ),
+        GoRoute(
+          path: '/chat',
+          builder: (context, state) => const ChatScreen(),
+        ),
+      ],
     ),
   ],
 );
 
 class MyApp extends StatelessWidget {
   final NotificationService notificationService;
-  
+
   const MyApp({super.key, required this.notificationService});
 
   @override
   Widget build(BuildContext context) {
+    // Initialize the GenerativeModel here
+    final generativeModel = FirebaseAI.vertexAI(auth: FirebaseAuth.instance)
+        .generativeModel(model: 'gemini-1.5-flash');
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
-        // Use HealthViewModel consistently
         ChangeNotifierProvider(create: (_) => HealthViewModel()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
-        // Provide the notification service instance
         Provider<NotificationService>.value(value: notificationService),
+        Provider<AiApiService>(
+          create: (_) => AiApiService(generativeModel),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ChatViewModel(context.read<AiApiService>()),
+        ),
       ],
       child: Consumer2<ThemeProvider, LocaleProvider>(
         builder: (context, themeProvider, localeProvider, child) {

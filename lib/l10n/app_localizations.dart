@@ -197,7 +197,7 @@ abstract class AppLocalizations {
   /// No description provided for @drinkWaterBody.
   ///
   /// In en, this message translates to:
-  /// **'Time to hydrate! Grab a glass of water.'**
+  /// **'Time to hydrate! Go grab a glass of water.'**
   String get drinkWaterBody;
 
   /// No description provided for @moveYourBody.
@@ -209,7 +209,7 @@ abstract class AppLocalizations {
   /// No description provided for @moveYourBodyBody.
   ///
   /// In en, this message translates to:
-  /// **'A short walk or some stretching can make a difference.'**
+  /// **'A short walk or a good stretch can make all the difference.'**
   String get moveYourBodyBody;
 
   /// No description provided for @timeForBed.
@@ -221,7 +221,7 @@ abstract class AppLocalizations {
   /// No description provided for @timeForBedBody.
   ///
   /// In en, this message translates to:
-  /// **'Good night! Aim for 8 hours of sleep.'**
+  /// **'Sweet dreams! Aim for a full 8 hours.'**
   String get timeForBedBody;
 
   /// No description provided for @sleepChart.
@@ -229,6 +229,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sleep Chart'**
   String get sleepChart;
+
+  /// No description provided for @chatHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type a message...'**
+  String get chatHint;
+
+  /// No description provided for @clearChat.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Chat History'**
+  String get clearChat;
+
+  /// No description provided for @clearChatTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Entire Conversation?'**
+  String get clearChatTitle;
+
+  /// No description provided for @clearChatContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete the entire chat history? This action cannot be undone.'**
+  String get clearChatContent;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
 }
 
 class _AppLocalizationsDelegate

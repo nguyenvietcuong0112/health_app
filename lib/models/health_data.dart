@@ -1,7 +1,7 @@
 class HealthData {
   final int steps;
   final int calories;
-  final int sleepHours;
+  final double sleepHours;
 
   HealthData({
     required this.steps,

@@ -75,4 +75,20 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get sleepChart => 'Biểu đồ giấc ngủ';
+
+  @override
+  String get chatHint => 'Nhập tin nhắn...';
+
+  @override
+  String get clearChat => 'Xóa lịch sử chat';
+
+  @override
+  String get clearChatTitle => 'Xóa toàn bộ cuộc trò chuyện?';
+
+  @override
+  String get clearChatContent =>
+      'Bạn có chắc chắn muốn xóa toàn bộ lịch sử trò chuyện không? Hành động này sẽ không thể khôi phục.';
+
+  @override
+  String get clear => 'Xóa';
 }

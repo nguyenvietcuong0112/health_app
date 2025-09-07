@@ -1,4 +1,4 @@
-'''# AI Health & Lifestyle App Blueprint
+# AI Health & Lifestyle App Blueprint
 
 ## Overview
 
@@ -12,14 +12,18 @@ The project follows a feature-driven directory structure to ensure scalability a
 lib/
 |-- api/                  # API service definitions (not yet implemented)
 |-- l10n/                 # Localization files
-|-- models/               # Data models (e.g., HealthData)
+|-- models/               # Data models (e.g., HealthData, ChatMessage)
 |-- screens/              # UI screens for different features
 |   |-- chat/
-|   |   `-- chat_screen.dart
-|   `-- dashboard/
-|       |-- dashboard_screen.dart
-|       |-- health_card.dart
-|       `-- sleep_chart.dart
+|   |   |-- chat_screen.dart
+|   |   |-- widgets/
+|   |   |   |-- chat_bubble.dart
+|   |   |   `-- message_composer.dart
+|   |-- dashboard/
+|   |   |-- dashboard_screen.dart
+|   |   |-- health_card.dart
+|   |   `-- sleep_chart.dart
+|   `-- main_screen.dart      # Main screen with bottom navigation
 |-- services/             # Business logic and services (AI, Notifications)
 |   |-- ai_api_service.dart
 |   `-- notification_service.dart
@@ -37,13 +41,15 @@ lib/
 ### 1. Wellness Dashboard (`dashboard_screen.dart`)
 - **Purpose:** Provides an at-a-glance view of the user's daily health metrics.
 - **Components:**
-  - **AI Health Tip:** A card displaying a daily health suggestion fetched from the Gemini API via `AiApiService`.
+  - **AI Health Tip:** A card displaying a daily health suggestion.
   - **Health Metrics Grid:** Displays key metrics like steps and calories burned using `HealthCard` widgets.
   - **Sleep Analysis:** A line chart (`SleepChart`) visualizing the user's sleep patterns over the last 7 days.
-- **Navigation:** An action button in the `AppBar` navigates to the `ChatScreen`.
 
 ### 2. AI Chat (`chat_screen.dart`)
 - **Purpose:** Allows users to have a conversation with a Gemini-powered AI for health advice.
+- **UI Enhancements:**
+  - **Styled Chat Bubbles:** Messages are displayed in visually distinct bubbles, with user and AI messages aligned differently and styled with unique colors and icons.
+  - **Modern Message Composer:** The text input field and send button have been redesigned for a more polished and user-friendly experience.
 - **Functionality:**
   - Maintains conversation history.
   - Sends user messages to `AiApiService` and displays the AI's response.
@@ -51,7 +57,7 @@ lib/
 ### 3. State Management (`viewmodels/`)
 - **Provider Pattern:** The app uses the `provider` package for state management.
 - **ViewModels:**
-  - `HealthViewModel`: Manages and provides `HealthData` (steps, calories, etc.).
+  - `HealthViewModel`: Manages and provides `HealthData`.
   - `ThemeViewModel`: Manages the app's theme (light/dark mode).
   - `LocaleViewModel`: Manages the app's language and localization.
 
@@ -60,30 +66,27 @@ lib/
 - **`NotificationService`**: Manages local push notifications.
 
 ### 5. Routing (`main.dart`)
-- **`go_router`:** The app uses `go_router` for declarative navigation, allowing for robust routing between the dashboard (`/`) and the chat screen (`/chat`).
+- **`go_router`:** The app uses `go_router` for declarative navigation.
+- **`ShellRoute`:** A `ShellRoute` is used to display a `BottomNavigationBar` in the `MainScreen`, which wraps the `DashboardScreen` (`/`) and `ChatScreen` (`/chat`).
 
 ### 6. Styling & Theming (`main.dart`)
 - **Material 3:** The app uses Material 3 design principles.
 - **`google_fonts`:** The `lato` font is used for typography.
-- **Dynamic Theme:** A centralized theme builder (`_buildTheme`) creates consistent light and dark themes based on a `ColorScheme` generated from a seed color.
+- **Dynamic Theme:** A centralized theme builder creates consistent light and dark themes.
 
-## Current Action Plan: Full System Restore
+## Current Action Plan: Enhance Chat UI
 
-**Objective:** Fix all compilation and runtime errors caused by a failed package upgrade by performing a complete and methodical restoration of the codebase.
+**Objective:** Improve the user interface of the chat screen to be more visually appealing and user-friendly.
 
 **Steps:**
 
-1.  **Standardize File Structure:**
-    - [x] Move all screen files into the `lib/screens/` directory.
-    - [x] Rename and move all provider classes to `lib/viewmodels/` to standardize naming conventions.
-    - [x] Delete old, now-empty directories (`lib/dashboard`, `lib/providers`).
+1.  **Style Chat Bubbles:**
+    - [x] Differentiated user and AI messages using distinct colors, alignment, and icons.
+    - [x] Added shadows and rounded corners for a more modern look.
 
-2.  **Fix Codebase:**
-    - [x] **`pubspec.yaml`**: Update to stable, compatible versions of all dependencies, including `firebase_ai: ^1.0.0`, `go_router: ^14.2.0`, and `fl_chart: ^1.1.0`.
-    - [x] **`main.dart`**: Rewrite to use the new file structure, correct ViewModel names, and properly initialize `MultiProvider` and `GoRouter`.
-    - [x] **All other Dart files**: Update all `import` statements to reflect the new, standardized file structure. Fix any breaking changes from package upgrades, especially in `sleep_chart.dart` and `ai_api_service.dart`.
+2.  **Redesign Message Composer:**
+    - [x] Restyled the text input field and send button for a cleaner and more intuitive design.
 
-3.  **Finalize and Run:**
-    - [x] Run `flutter pub get` to synchronize dependencies.
-    - [x] Run `flutter run` to launch the application.
-'''
+3.  **Finalize and Verify:**
+    - [x] Application rebuilt successfully.
+    - [x] The chat screen now has a more polished and engaging user interface.

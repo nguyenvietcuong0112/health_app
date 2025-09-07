@@ -1,10 +1,25 @@
+import 'package:flutter/foundation.dart';
 
-
-enum Role { user, model }
-
+@immutable
 class ChatMessage {
   final String text;
-  final Role role;
+  final bool isUser;
 
-  ChatMessage({required this.text, required this.role});
+  const ChatMessage({required this.text, required this.isUser});
+
+  // Factory constructor to create a ChatMessage from a JSON object
+  factory ChatMessage.fromJson(Map<String, dynamic> json) {
+    return ChatMessage(
+      text: json['text'] as String,
+      isUser: json['isUser'] as bool,
+    );
+  }
+
+  // Method to convert a ChatMessage to a JSON object
+  Map<String, dynamic> toJson() {
+    return {
+      'text': text,
+      'isUser': isUser,
+    };
+  }
 }
